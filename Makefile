@@ -1,3 +1,4 @@
+-include config/config.vars
 OS:=$(shell uname | sed 's/[-_].*//')
 CFLAGS:=-Wall -O2 -Werror $(PYINCLUDE)
 SOEXT:=.so
@@ -14,9 +15,6 @@ bup: lib/bup/_version.py lib/bup/_helpers$(SOEXT) cmds
 
 Documentation/all: bup
 
-INSTALL=install
-PYTHON=python
-PREFIX=/usr
 MANDIR=$(DESTDIR)$(PREFIX)/share/man
 DOCDIR=$(DESTDIR)$(PREFIX)/share/doc/bup
 BINDIR=$(DESTDIR)$(PREFIX)/bin
